@@ -1,0 +1,8 @@
+Dies ist ein kleines Steuergerät. Mit ihm soll die Antenneumschaltung durch das Koaxkabel unter der Antenne erfolgen. Die USB-Schnittstelle des AruinoNano ermöglicht die Bedienung per PC. Alternativ ist die Bedienung über Tasten möglich.
+Wie immer gilt, Nachbau auf eigene Verantwortung und der Nachbau ist nur zu privaten Zwecken erlaubt. Eine Kommerzielle Nutzung ist nicht gestattet!
+
+This is a small control unit. It's designed to handle antenna switching via the coaxial cable running under the antenna. The Arduino Nano's USB interface allows for operation via a PC. Alternatively, it can be operated using buttons.
+As always, any reproduction is at your own risk and is permitted for private use only. Commercial use is prohibited!
+
+
+
