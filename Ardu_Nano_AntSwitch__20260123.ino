@@ -95,24 +95,30 @@ void loop() {
 
 
  if (Serial.available()) {
-   //LED_ein();
-   //String ser= Serial.readString();//Until('\n');
+    delay(100); // Delay um das Steuerkomando vollständig zu emfangen
+     LED_ein();
+    digitalWrite(led3,HIGH);
+    digitalWrite(led2,HIGH);
+    digitalWrite(led1,HIGH);
    String my = Serial.readStringUntil('\n');
-  // String my=ser.substring(0,4);
+  if(my.length() ==4){
     if (my =="Ant1") {
-      LED_ein();
        antenne1(); 
       };
     if (my =="Ant2") {
-      LED_ein();
       antenne2();
       }; 
      if (my =="Ant3") {
-      LED_ein();
           antenne3();
       }; 
-      delay(200);
+      delay(20);
       LED_aus();//serielle Eingabe
-  } 
+ }
+  } else{ //falsches Komando
+    delay(100);
+    //Platzhalter
+  }
+}
+
 }
 
