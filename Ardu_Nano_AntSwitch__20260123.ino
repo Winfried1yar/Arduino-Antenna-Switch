@@ -16,8 +16,8 @@ stty -a < /dev/Arduino
 */
 uint16_t baud =9600;
 //Pinbelegung
-const int  Rl1 = 8; // Relay
-const int  Rl2 = 7; // Relais
+const int  Rl1 = 7; // Relay
+const int  Rl2 = 8; // Relais
 
 const int led1 = 14;//2;
 const int led2 = 15;//3;
