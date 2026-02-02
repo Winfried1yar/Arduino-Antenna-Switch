@@ -6,8 +6,8 @@ DL1YAR Januar 2026
 Version   2026-01-20
 Ant_Switch_Shack.kicad_pro
 ---Script zur Umschaltung----------------
-stty -F /dev/ttyUSB0 9600 -parenb -parodd -cmspar cs8 -hupcl -cstopb cread clocal -crtscts -ignbrk brkint ignpar -parmrk -inpck -istrip -inlcr -igncr -icrnl ixon -ixoff -iuclc -ixany -imaxbel -iutf8 -opost -olcuc -ocrnl -onlcr -onocr -onlret -ofill -ofdel nl0 cr0 tab0 bs0 vt0 ff0 -isig -icanon iexten -echo echoe echok -echonl -noflsh -xcase -tostop -echoprt echoctl echoke -flusho -extproc
-echo -e Ant3 > /dev/Arduino
+stty -F /dev/Arduino 9600 -parenb -parodd -cmspar cs8 -hupcl -cstopb cread clocal -crtscts -ignbrk brkint ignpar -parmrk -inpck -istrip -inlcr -igncr -icrnl ixon -ixoff -iuclc -ixany -imaxbel -iutf8 -opost -olcuc -ocrnl -onlcr -onocr -onlret -ofill -ofdel nl0 cr0 tab0 bs0 vt0 ff0 -isig -icanon iexten -echo echoe echok -echonl -noflsh -xcase -tostop -echoprt echoctl echoke -flusho -extproc
+echo Ant3 > /dev/Arduino
 -------------------------
 Komandozeile zum Auslesen----------
 stty -a < /dev/Arduino
@@ -97,11 +97,9 @@ void loop() {
  if (Serial.available()) {
     delay(100); // Delay um das Steuerkomando vollständig zu emfangen
      LED_ein();
-    digitalWrite(led3,HIGH);
-    digitalWrite(led2,HIGH);
-    digitalWrite(led1,HIGH);
-   String my = Serial.readStringUntil('\n');
-  if(my.length() ==4){
+ String my = Serial.readString();
+   my = my.substring(0,4);
+  
     if (my =="Ant1") {
        antenne1(); 
       };
@@ -114,10 +112,7 @@ void loop() {
       delay(20);
       LED_aus();//serielle Eingabe
  }
-  } else{ //falsches Komando
-    delay(100);
-    //Platzhalter
-  }
+ 
 }
 
 
